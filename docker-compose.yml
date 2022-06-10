@@ -2,22 +2,21 @@ version: "3.9"
 
 services:
   app:
-    image: php:7.4-fpm
+    build: ./docker/app
     volumes:
       - ./src:/var/www/html/
     platform: linux/amd64 # need for correct run on macbook with m1
 
   nginx:
-    image: nginx:latest
+    build: ./docker/proxy
     ports:
       - "8081:80"
     volumes:
-      - ./docker/nginx/config/default.conf:/etc/nginx/conf.d/default.conf
       - ./src:/var/www/html/
     platform: linux/amd64 # need for correct run on macbook with m1
 
   db:
-    image: mysql:8.0
+    build: ./docker/db
     volumes:
       - mysqldata:/var/lib/mysql
     environment:
