@@ -1,4 +1,4 @@
-# Docker for YII2
+# Docker for Laravel
 
 ### Installation
 
@@ -12,5 +12,10 @@ cd src && composer install
 
 For run application need run command
 ~~~
-docker-compose up
+make run-dev
+~~~
+
+For build images need:
+~~~
+make build
 ~~~
