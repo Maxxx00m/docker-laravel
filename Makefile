@@ -7,7 +7,7 @@ help:
 	$(info - `run-dev` - start development project)
 
 build:
-	docker-compose build
+	docker compose build
 
 run-dev:
-	docker-compose up
+	docker compose up
