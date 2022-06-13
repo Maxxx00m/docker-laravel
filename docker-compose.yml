@@ -2,21 +2,13 @@ version: "3.9"
 
 services:
   app:
-    build: ./docker/app
-    volumes:
-      - ./src:/var/www/html/
-    platform: linux/amd64 # need for correct run on macbook with m1
-
-  nginx:
-    build: ./docker/proxy
-    ports:
-      - "8081:80"
+    build: ./app
     volumes:
       - ./src:/var/www/html/
     platform: linux/amd64 # need for correct run on macbook with m1
 
   db:
-    build: ./docker/db
+    build: ./db
     volumes:
       - mysqldata:/var/lib/mysql
     environment:
